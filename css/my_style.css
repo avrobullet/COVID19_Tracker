@@ -18,6 +18,12 @@ h1 {
     color: white;
 }
 
+h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
 img {
     display: block;
     margin: 1rem auto;
@@ -47,7 +53,8 @@ footer {
     padding: 25px 25px 25px 25px;
     text-align: center;
     color: white;
-    font-size: 400%;
+    font-size: 500%;
+    font-weight: bold;
 }
 
 .container {
@@ -79,8 +86,8 @@ footer {
 }
 
 .card:hover {
-    box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
-    transform: translate3D(0, -2px, 0);
+    box-shadow: 2px 8px 45px 20px rgba(0, 0, 0, .15);
+    transform: scale3d(1.02,1.02,1.02);
     background-color: whitesmoke;
     transition: all 0.1s linear;
 }
