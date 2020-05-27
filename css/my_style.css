@@ -86,7 +86,7 @@ footer {
 }
 
 .card:hover {
-    box-shadow: 2px 8px 45px 20px rgba(0, 0, 0, .15);
+    box-shadow: 2px 8px 45px 2px darkslategrey;
     transform: scale3d(1.02,1.02,1.02);
     background-color: whitesmoke;
     transition: all 0.1s linear;
@@ -104,11 +104,17 @@ footer {
     .card {
         flex: 1 1 calc(50% - 2rem);
     }
+    .card:hover {
+        box-shadow: 2px 8px 45px 2.5px darkslategrey;
+    }
 }
 
 @media screen and (min-device-width: 900px) {
     .card {
         flex: 1 1 calc(33% - 2rem);
+    }
+    .card:hover {
+        box-shadow: 2px 8px 45px 4px darkslategrey;
     }
 }
 
