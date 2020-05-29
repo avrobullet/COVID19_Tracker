@@ -105,6 +105,11 @@ th {
 }
 
 @media screen and (min-device-width: 600px) {
+    h2 {
+        text-align: center;
+        font-size: 0.35rem;
+        color: white;
+    }
     .card {
         flex: 1 1 calc(50% - 2rem);
     }
@@ -114,6 +119,11 @@ th {
 }
 
 @media screen and (min-device-width: 900px) {
+    h2 {
+        text-align: center;
+        font-size: 1.5rem;
+        color: white;
+    }
     .card {
         flex: 1 1 calc(33% - 2rem);
     }

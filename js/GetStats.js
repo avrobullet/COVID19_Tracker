@@ -57,7 +57,7 @@ function getNationalStats() {
         //Get COVID19 stats per
         var stats = JSON.parse(this.response)
         if (request.status >= 200 && request.status < 400) {
-            console.log(stats)
+            //console.log(stats)
             displayStats(stats, false)
         } else {
             console.log('error')
@@ -96,22 +96,18 @@ function displayStats(stats, card=None){
         if (valid_land == true) {
             //Post latest COVID19 time stamp
             [current_year, current_month, current_day] = current_timestamp.split('T')[0].split('-')
-            console.log(parseInt(current_month), months[(parseInt(current_month))-1])
             year = current_year+''
             month = months[(parseInt(current_month))-1]+' '
             day = current_day+''
             let new_date = month.concat(day, ', ',year)
-            //console.log(new_date, month, day, year)
 
             //Post COVID19 stats onto 'cards' if true
             if (card == false) {
-                //console.log(current_timestamp, current_date)
                 //Set national stat displays
-                const h1 = document.createElement('h1')
-                h1.textContent = "National Statistics"
                 document.getElementById("national_update").innerHTML = '';
                 document.getElementById("national_stats").innerHTML = '';
-                document.getElementById("national_timestamp_update").innerHTML = national_timespan_notification+new_date;
+                document.getElementById("national_timestamp_update").innerHTML = national_timespan_notification;
+                document.getElementById("national_timestamp").innerHTML = new_date;
             }
 
             //Post COVID19 stats onto 'cards' if true
@@ -140,7 +136,8 @@ function displayStats(stats, card=None){
                 card.appendChild(table)
 
                 //Display previously stats update
-                document.getElementById("provincial/territory_timestamp_update").innerHTML = province_timespan_notification+new_date;
+                document.getElementById("provincial/territory_timestamp_update").innerHTML = province_timespan_notification
+                document.getElementById("provincial/territory_timestamp").innerHTML = new_date;
             }
         }
         //Reset flag for found province/territory
@@ -196,15 +193,15 @@ function createTable(table, data) {
     }
 }
 function styleStats(key, set_style) {
-    if (key == 'Confirmed Cases') {
+    if (key == 'Confirmed Cases' || key == 'Total Cases') {
         set_style.style.color = stat_style.confirmed[0]
         set_style.style.fontSize = stat_style.confirmed[1]
     }
-    if (key == 'Confirmed Deaths') {
+    if (key == 'Confirmed Deaths' || key == 'Total Deaths') {
         set_style.style.color = stat_style.deaths[0]
         set_style.style.fontSize = stat_style.deaths[1]
     }
-    if (key == 'Confirmed Active') {
+    if (key == 'Confirmed Active' || key == 'Total Active') {
         set_style.style.color = stat_style.active[0]
         set_style.style.fontSize = stat_style.active[1]
     }
@@ -239,5 +236,5 @@ let accumulated_deaths = []
 let accumulated_recovered = []
 let selected_display_stats = []
 
-let national_timespan_notification = 'Previous Updated National Stats: '
-let province_timespan_notification = 'Previous Updated Provincial/Territory Stats: '
+let national_timespan_notification = 'Current National Stats: '
+let province_timespan_notification = 'Current Provincial/Territory Stats: '
