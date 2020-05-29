@@ -104,12 +104,6 @@ th {
     transition: width 2s, height 2s, transform 0.1s;
 }
 
-.graph {
-    padding: 1rem 1rem;
-    margin: 0;
-    overflow: auto;
-}
-
 @media screen and (min-device-width: 600px) {
     .card {
         flex: 1 1 calc(50% - 2rem);

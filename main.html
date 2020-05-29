@@ -6,38 +6,6 @@
     <title>Covid Relief Helper</title>
     <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet" />
     <link href="/COVID19_Tracker/css/my_style.css" rel="stylesheet"/>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', {
-            'packages':['geochart'],
-            // Note: you will need to get a mapsApiKey for your project.
-            // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-            'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
-        });
-        google.charts.setOnLoadCallback(drawRegionsMap);
-
-        function drawRegionsMap() {
-            var data = google.visualization.arrayToDataTable([
-                ['Provinces', 'Popularity'],
-                [{v: 'CA-AB', f: 'Alberta'}, 200],
-                [{v: 'CA-BC', f: 'British Columbia'}, 300],
-                [{v: 'CA-MB', f: 'Manitoba'}, 300]
-            ]);
-
-            var options = {
-                region:'CA',
-                resolution:'provinces',
-                colorAxis: {
-                    minValue: 0,
-                    maxValue: 400
-                }
-            };
-
-            var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
-
-            chart.draw(data, options);
-        }
-    </script>
 </head>
 <body>
     <!-- Intro Page -->
@@ -46,10 +14,13 @@
         <h3>
             <p>(Current build: 0.9.5)<br>
         </h3>
-        <h2><p id="timestamp_update"></p></h2>
+        <!-- National Stats -->
+        <h2><p id="national_update"></h2>
+        <h2><p id="national_stats"></h2>
+        <h2><p id="national_timestamp_update"></h2>
     </div>
-    <div id="regions_div" class="graph"></div>
-    <!-- Country Information -->
+    <!-- Province/Territory Stats -->
+    <h2><p id="provincial/territory_timestamp_update"></p></h2>
     <div id="root">
         <div class="container"></div>
     </div>

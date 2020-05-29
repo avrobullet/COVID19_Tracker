@@ -17,135 +17,162 @@ months = ['January',
     'November',
     'December'
 ]
-// Canadian Provinces and Territories (in no particular order)
+// Canadian National stats
+canadian_stats_national = {
+    active: 0,
+    deaths: 0,
+    recovered: 0
+}
+// Canadian Provinces and Territories stats (in no particular order)
 canadian_stats = {
-    land: ['Alberta',
-        'British Columbia',
-        'Nova Scotia',
-        'Quebec',
-        'Ontario',
-        'New Brunswick',
-        'Manitoba',
-        'Prince Edward Island',
-        'Saskatchewan',
-        'Newfoundland and Labrador',
-        'Yukon',
-        'Nunavut',
-        'Northwest Territories'],
-    active:['blue','25px'],
-    confirmed: ['orange','25px'],
-    deaths:['red','25px'],
-    recovered: ['green','25px']
+    alberta:                { province: 'Alberta', confirmed: 0, active: 0, deaths: 0, recovered: 0 },
+    britishcolumbia:        { province: 'British Columbia', confirmed: 0, active: 0, deaths: 0, recovered: 0 },
+    novascotia:             { province: 'Nova Scotia', confirmed: 0, active: 0, deaths: 0, recovered: 0 },
+    quebec:                 { province: 'Quebec', confirmed: 0, active: 0, deaths: 0, recovered: 0 },
+    ontario:                { province: 'Ontario', confirmed: 0, active: 0, deaths: 0, recovered: 0 },
+    newbrunswick:           { province: 'New Brunswick', confirmed: 0, active: 0, deaths: 0, recovered: 0 },
+    manitoba:               { province: 'Manitoba', confirmed: 0, active: 0, deaths: 0, recovered: 0 },
+    princeedwardisland:     { province: 'Prince Edward Island', confirmed: 0, active: 0, deaths: 0, recovered: 0 },
+    saskatchewan:           { province: 'Saskatchewan', confirmed: 0, active: 0, deaths: 0, recovered: 0 },
+    newfoudlandandlabrador: { province: 'Newfoundland and Labrador', confirmed: 0, active: 0, deaths: 0, recovered: 0 },
+    yukon:                  { province: 'Yukon', confirmed: 0, active: 0, deaths: 0, recovered: 0 },
+    nunavut:                { province: 'Nunavut', confirmed: 0, active: 0, deaths: 0, recovered: 0 },
+    northwestterritories:   { province: 'Northwest Territories', confirmed: 0, active: 0, deaths: 0, recovered: 0 }
+}
+// HTML styles
+stat_style = {
+    active:     ['blue','25px'],
+    confirmed:  ['orange','25px'],
+    deaths:     ['red','25px'],
+    recovered:  ['green','25px']
 }
 // Create functions
-function getProvinceStats() {
-    //Get Canadian COVID19 stats
+function getNationalStats() {
+
+    //Get Canadian National COVID19 stats
     var request = new XMLHttpRequest()
-    request.open('GET', covid19_urls[1], true)
+    request.open('GET', covid19_urls[0], true)
     request.onload = function() {
+
         //Get COVID19 stats per
         var stats = JSON.parse(this.response)
         if (request.status >= 200 && request.status < 400) {
-            displayProvinceStats(stats)
+            console.log(stats)
+            displayStats(stats, false)
         } else {
             console.log('error')
         }
     }
     request.send()
 }
-function displayProvinceStats(stats){
+function getProvinceStats() {
+    //Get Canadian Provincial/Territory COVID19 stats
+    var request = new XMLHttpRequest()
+    request.open('GET', covid19_urls[1], true)
+    request.onload = function() {
+        //Get COVID19 stats per
+        var stats = JSON.parse(this.response)
+        if (request.status >= 200 && request.status < 400) {
+            displayStats(stats, true)
+        } else {
+            console.log('error')
+        }
+    }
+    request.send()
+}
+function displayStats(stats, card=None){
     //Collect COVID19 confirmed, deaths, and recoveries (COVID19 stats)
-    for (let key in canadian_stats.land) {
-        selected_province_territory = canadian_stats.land[key]
+    for (let area in canadian_stats) {
         for (let key in stats) {
             // Process province's/territories' corresponding data
-            if (selected_province_territory.toLowerCase().trim() == stats[key].Province.toLowerCase().trim()) {
+            if (canadian_stats[area].province.toLowerCase().trim() == stats[key].Province.toLowerCase().trim()) {
                 valid_land = true
                 current_province_key = key
-                processData(key,stats)
+                processData(key,stats,canadian_stats[area], card)
             }
         }
+
         // Only create COVID19 stats if currently selected province/territory is found
         if (valid_land == true) {
             //Post latest COVID19 time stamp
-            let date = current_timestamp.slice(0, 10)
-            let time = current_timestamp.slice(11, 19)
-            date = new Date(date)
-            let month = months[date.getMonth()]+' '
-            let day = date.getDay()+''
-            let year = date.getFullYear()+''
-            new_date = month.concat(day,', ',year)
-            document.getElementById("timestamp_update").innerHTML = timespan_notification+new_date;
+            [current_year, current_month, current_day] = current_timestamp.split('T')[0].split('-')
+            console.log(parseInt(current_month), months[(parseInt(current_month))-1])
+            year = current_year+''
+            month = months[(parseInt(current_month))-1]+' '
+            day = current_day+''
+            let new_date = month.concat(day, ', ',year)
+            //console.log(new_date, month, day, year)
 
-            //Post COVID19 stats onto 'cards'
-            const card = document.createElement('div')
-            card.setAttribute('class', 'card')
-
-            //Store COVID19 stats to display as a table (Convert to dictionary where each label includes a type of colour)
-            const table = document.createElement("table")
-            selected_display_stats = {
-                "Confirmed Cases": current_confirmed,
-                "Confirmed Deaths": current_deaths,
-                "Confirmed Active": current_active,
-                "Total Recovered": total_recovered
+            //Post COVID19 stats onto 'cards' if true
+            if (card == false) {
+                //console.log(current_timestamp, current_date)
+                //Set national stat displays
+                const h1 = document.createElement('h1')
+                h1.textContent = "National Statistics"
+                document.getElementById("national_update").innerHTML = '';
+                document.getElementById("national_stats").innerHTML = '';
+                document.getElementById("national_timestamp_update").innerHTML = national_timespan_notification+new_date;
             }
 
-            //Set provinces/territories per card
-            createTable(table,selected_display_stats)
-            const h1 = document.createElement('h1')
-            h1.textContent = stats[current_province_key].Province
+            //Post COVID19 stats onto 'cards' if true
+            if (card == true)
+            {
+                const card = document.createElement('div')
+                card.setAttribute('class', 'card')
 
-            //Display content on each card
-            container.appendChild(card)
-            card.appendChild(h1)
-            card.appendChild(table)
+                //Store COVID19 stats to display as a table (Convert to dictionary where each label includes a type of colour)
+                const table = document.createElement("table")
+                selected_display_stats = {
+                    "Confirmed Cases": canadian_stats[area].confirmed,
+                    "Confirmed Deaths": canadian_stats[area].deaths,
+                    "Confirmed Active": canadian_stats[area].active,
+                    "Total Recovered": total_recovered
+                }
+
+                //Set provinces/territories per card
+                createTable(table,selected_display_stats)
+                const h1 = document.createElement('h1')
+                h1.textContent = stats[current_province_key].Province
+
+                //Display content on each card
+                container.appendChild(card)
+                card.appendChild(h1)
+                card.appendChild(table)
+
+                //Display previously stats update
+                document.getElementById("provincial/territory_timestamp_update").innerHTML = province_timespan_notification+new_date;
+            }
         }
         //Reset flag for found province/territory
         valid_land = false
     }
 }
-function processData(key,stats) {
+function processData(key,stats,display_stats) {
     // Graphing data
-    accumulated_active += stats[key].Active
-    accumulated_confirmed += stats[key].Confirmed
-    accumulated_deaths += stats[key].Deaths
-    accumulated_recovered += stats[key].Date
-    // Main data
-    current_active = stats[key].Active
-    current_confirmed = stats[key].Confirmed
-    current_deaths = stats[key].Deaths
+    accumulated_active.push(stats[key].Active)
+    accumulated_confirmed.push(stats[key].Confirmed)
+    accumulated_deaths.push(stats[key].Deaths)
+    accumulated_recovered.push(stats[key].Date)
+
+    // Main national data
+    total_active = 0
+    total_confirmed = 0
+    total_deaths = 0
+
+    // Main provincial data
+    display_stats.active = stats[key].Active
+    display_stats.confirmed = stats[key].Confirmed
+    display_stats.deaths = stats[key].Deaths
     current_timestamp = stats[key].Date
+
     //Use reported recovered cases if known...
     current_recovered = stats[key].Recovered
+
     //...Or provide an estimate as to how many have recovered
     if (stats[key].Recovered = 0) {
         //current_recovered += current_confirmed - current_active - current_deaths
     }
     total_recovered += current_recovered
-}
-function createGraph() {
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
-
-        var data = google.visualization.arrayToDataTable([
-            ['Task', 'Hours per Day'],
-            ['Work',     11],
-            ['Eat',      2],
-            ['Commute',  2],
-            ['Watch TV', 2],
-            ['Sleep',    7]
-        ]);
-
-        var options = {'title':'How Much Pizza I Ate Last Night',
-            'width':400,
-            'height':300,
-            'backgroundColor':'transparent'};
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-        chart.draw(data, options);
-    }
 }
 function createTable(table, data) {
     //Create table with selected data stats
@@ -160,33 +187,39 @@ function createTable(table, data) {
         cell.appendChild(data_value)
         th.appendChild(data_header)
         head_row.appendChild(th)
+
         //Format stats to HTML page
-        if (key == 'Confirmed Cases') {
-            cell.style.color = canadian_stats.confirmed[0]
-            cell.style.fontSize = canadian_stats.confirmed[1]
-        }
-        if (key == 'Confirmed Deaths') {
-            cell.style.color = canadian_stats.deaths[0]
-            cell.style.fontSize = canadian_stats.deaths[1]
-        }
-        if (key == 'Confirmed Active') {
-            cell.style.color = canadian_stats.active[0]
-            cell.style.fontSize = canadian_stats.active[1]
-        }
-        if (key == 'Total Recovered') {
-            cell.style.color = canadian_stats.recovered[0]
-            cell.style.fontSize = canadian_stats.recovered[1]
-        }
+        cell = styleStats(key,cell)
         cell.style.fontWeight = 'bold';
         cell.style.textAlign = 'center';
         cell.style.padding = '5px';
     }
+}
+function styleStats(key, set_style) {
+    if (key == 'Confirmed Cases') {
+        set_style.style.color = stat_style.confirmed[0]
+        set_style.style.fontSize = stat_style.confirmed[1]
+    }
+    if (key == 'Confirmed Deaths') {
+        set_style.style.color = stat_style.deaths[0]
+        set_style.style.fontSize = stat_style.deaths[1]
+    }
+    if (key == 'Confirmed Active') {
+        set_style.style.color = stat_style.active[0]
+        set_style.style.fontSize = stat_style.active[1]
+    }
+    if (key == 'Total Recovered') {
+        set_style.style.color = stat_style.recovered[0]
+        set_style.style.fontSize = stat_style.recovered[1]
+    }
+    return set_style
 }
 // Initialize HTML elements
 const app = document.getElementById('root')
 const container = document.createElement('div')
 container.setAttribute('class', 'container')
 app.appendChild(container)
+getNationalStats()
 getProvinceStats()
 
 // Initialize variables
@@ -197,9 +230,6 @@ let total_deaths = 0
 let total_recovered = 0
 let total_timestamp = ''
 
-let current_active = 0
-let current_confirmed = 0
-let current_deaths = 0
 let current_recovered = 0
 let current_timestamp = ''
 
@@ -209,4 +239,5 @@ let accumulated_deaths = []
 let accumulated_recovered = []
 let selected_display_stats = []
 
-let timespan_notification = 'Recently Updated as of '
+let national_timespan_notification = 'Previous Updated National Stats: '
+let province_timespan_notification = 'Previous Updated Provincial/Territory Stats: '
