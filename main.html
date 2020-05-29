@@ -6,18 +6,42 @@
     <title>Covid Relief Helper</title>
     <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet" />
     <link href="/COVID19_Tracker/css/my_style.css" rel="stylesheet"/>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['Work',     11],
+                ['Eat',      2],
+                ['Commute',  2],
+                ['Watch TV', 2],
+                ['Sleep',    7]
+            ]);
+
+            var options = {'title':'How Much Pizza I Ate Last Night',
+                'width':400,
+                'height':300,
+                'backgroundColor':'transparent'};
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
+    </script>
 </head>
 <body>
     <!-- Intro Page -->
     <div class="header">
         Canada COVID19 Tracker
-        <h2>
-            <p id="timestamp_update"></p>
-        </h2>
+        <h3>
+            <p>(Current build: 0.9.5)<br>
+        </h3>
+        <h2><p id="timestamp_update"></p></h2>
     </div>
-    <!-- div class="header">
-            <button class="button button1" onclick="getProvinceStats()">Get Stats!</button>
-    </div -->
+    <div id="piechart" class="graph"></div>
     <!-- Country Information -->
     <div id="root">
         <div class="container"></div>
@@ -26,10 +50,11 @@
 </body>
 <footer>
 
-    <p>Data provided by the Johns Hopkins International COVID19 Mapping Project.<br>
-    <p>Data accessed through the COVID19 API Project.<br>
-    <p>Current Version: 0.9.3<br>
-    <p>Author: Alex Douglas<br>
+    <p>Data provided by the
+        <a href="https://systems.jhu.edu/research/public-health/ncov/" target="_blank">Johns Hopkins International COVID19 Mapping Project</a>.<br>
+    <p>Data accessed through the
+        <a href="https://covid19api.com/" target="_blank">COVID19 API Project</a>.<br>
+    <p>Created and maintained by: Alex Douglas<br>
         <a href="mailto:hege@example.com">hege@example.com</a></p>
 </footer>
 </html>

@@ -1,3 +1,8 @@
+//COVID19 URL requests
+covid19_urls = [
+    'https://api.covid19api.com/country/canada/status/confirmed/live',  //Country-wide stats (more frequent updates)
+    'https://api.covid19api.com/live/country/canada/status/confirmed'   //Provincial stats (less frequent updates)
+]
 //Months...
 months = ['January',
     'February',
@@ -36,12 +41,11 @@ canadian_stats = {
 function getProvinceStats() {
     //Get Canadian COVID19 stats
     var request = new XMLHttpRequest()
-    request.open('GET', 'https://api.covid19api.com/live/country/Canada/status/confirmed/date/2020-03-21T13:13:30Z', true)
+    request.open('GET', covid19_urls[1], true)
     request.onload = function() {
-        //Get COVID19 stats per country
+        //Get COVID19 stats per
         var stats = JSON.parse(this.response)
-        if (request.status >= 200 && request.status < 400)
-        {
+        if (request.status >= 200 && request.status < 400) {
             displayProvinceStats(stats)
         } else {
             console.log('error')
@@ -70,14 +74,14 @@ function displayProvinceStats(stats){
             let month = months[date.getMonth()]+' '
             let day = date.getDay()+''
             let year = date.getFullYear()+''
-            new_date = month.concat(day,' ,',year)
-            document.getElementById("timestamp_update").innerHTML = 'As of '+new_date;
+            new_date = month.concat(day,', ',year)
+            document.getElementById("timestamp_update").innerHTML = timespan_notification+new_date;
 
             //Post COVID19 stats onto 'cards'
             const card = document.createElement('div')
             card.setAttribute('class', 'card')
 
-            //Store COVID19 stats to display as a table (Convert to dictionnary where each label includes a type of colour)
+            //Store COVID19 stats to display as a table (Convert to dictionary where each label includes a type of colour)
             const table = document.createElement("table")
             selected_display_stats = {
                 "Confirmed Cases": current_confirmed,
@@ -119,6 +123,30 @@ function processData(key,stats) {
     }
     total_recovered += current_recovered
 }
+function createGraph() {
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+            ['Task', 'Hours per Day'],
+            ['Work',     11],
+            ['Eat',      2],
+            ['Commute',  2],
+            ['Watch TV', 2],
+            ['Sleep',    7]
+        ]);
+
+        var options = {'title':'How Much Pizza I Ate Last Night',
+            'width':400,
+            'height':300,
+            'backgroundColor':'transparent'};
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+    }
+}
 function createTable(table, data) {
     //Create table with selected data stats
     let table_row = table.insertRow()
@@ -126,10 +154,10 @@ function createTable(table, data) {
     let head_row = table_head.insertRow()
     for (key in data) {
         let cell = table_row.insertCell()
-        let data_value = document.createTextNode(data[key])
-        cell.appendChild(data_value)
         let th = document.createElement("th")
+        let data_value = document.createTextNode(data[key])
         let data_header = document.createTextNode(key)
+        cell.appendChild(data_value)
         th.appendChild(data_header)
         head_row.appendChild(th)
         //Format stats to HTML page
@@ -149,11 +177,9 @@ function createTable(table, data) {
             cell.style.color = canadian_stats.recovered[0]
             cell.style.fontSize = canadian_stats.recovered[1]
         }
-        cell.style.fontWeight = "bold";
-        cell.style.textAlign = "center";
-        cell.style.padding = "5px";
-        th.style.wordSpacing = "3px";
-        th.style.padding = "5px";
+        cell.style.fontWeight = 'bold';
+        cell.style.textAlign = 'center';
+        cell.style.padding = '5px';
     }
 }
 // Initialize HTML elements
@@ -182,3 +208,5 @@ let accumulated_confirmed = []
 let accumulated_deaths = []
 let accumulated_recovered = []
 let selected_display_stats = []
+
+let timespan_notification = 'Recently Updated as of '
