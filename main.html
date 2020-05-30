@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- <link rel="shortcut icon" href="img/misc/something-iconic.png"> -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Covid Relief Helper</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Canadian Covid19 Dashboard</title>
     <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet" />
     <link href="/COVID19_Tracker/css/my_style.css" rel="stylesheet"/>
+    <script src="js/CanadianStats.js"></script>
 </head>
 <body>
-    <!-- Intro Page -->
-    <div class="header">
-        Canada COVID19 Tracker
-        <h3>
-            <p>(Current build: 0.9.9)<br>
-        </h3>
-        <!-- National Stats -->
-        <h2><p id="national_update"></h2>
-        <h2><p id="national_stats"></h2>
-        <h2><p id="national_timestamp_update">
-            <p id="national_timestamp" style="color:blue">
+    <div id="root"  class="fade-in">
+        <!-- Intro Page -->
+        <div class="header">
+            Canada COVID19 Dashboard
+            <h3>
+                <p>(Current build: 0.9.9.9)<br>
+            </h3>
+            <!-- National Stats -->
+            <h2><p id="national_update"></h2>
+            <h2><p id="national_stats"></h2>
+            <h2><p id="national_timestamp_update"><br>
+                <p class="fade-in-data data" id="national_cases"></p>
+            </h2>
+        </div>
+        <!-- Province/Territory Stats -->
+        <h2><p id="provincial/territory_timestamp_update">
+            <p id="provincial/territory_timestamp" style="color:blue">
         </h2>
-    </div>
-    <!-- Province/Territory Stats -->
-    <h2><p id="provincial/territory_timestamp_update">
-        <p id="provincial/territory_timestamp" style="color:blue">
-    </h2>
-    <div id="root">
-        <div class="container"></div>
+        <a class="container fade-in-cards" href="https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_link_create">
+        </a>
     </div>
     <script src="/COVID19_Tracker/js/GetStats.js"></script>
 </body>
-<footer>
-
+<footer class="fade-in">
     <p>Data provided by the
         <a href="https://systems.jhu.edu/research/public-health/ncov/" target="_blank">Johns Hopkins International COVID19 Mapping Project</a>.<br>
     <p>Data accessed through the

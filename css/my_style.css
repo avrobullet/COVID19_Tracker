@@ -5,8 +5,6 @@
 footer {
     text-align: center;
     padding: 3px;
-    linear-gradient(120deg, #00D7FF 0%, #9F32B2 100%)
-    color: white;
 }
 
 html {
@@ -29,6 +27,7 @@ h2 {
     text-align: center;
     font-size: 2.5rem;
     color: white;
+    margin-bottom: 0px;
 }
 
 h3 {
@@ -56,13 +55,15 @@ th {
     font-size: 1rem;
 }
 
-#root {
-    max-width: 1200px;
-    margin: 0 auto;
+.data {
+    text-align: center;
+    font-size: 5rem;
+    color: blue;
+    margin: 5px;
 }
 
 .header {
-    padding: 2rem 2rem 2rem 2rem;
+    padding: 2px 2px 2px 2px;
     text-align: center;
     color: white;
     font-size: 500%;
@@ -73,20 +74,9 @@ th {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-}
-
-.button {
-    box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
-    border-radius: 500px;
-    text-align: center;
-    padding: 16px 32px;
-}
-
-.button1 {
-    margin: 1rem;
-    background-color: #8fd3f4;
-    border-color: transparent;
-    transition: all .1s linear;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    justify-content: space-between;
 }
 
 .card {
@@ -97,18 +87,109 @@ th {
     overflow: hidden;
 }
 
-.card:hover {
-    box-shadow: 2px 8px 45px 2px darkslategrey;
-    transform: scale3d(1.02,1.02,1.02);
-    background-color: whitesmoke;
-    transition: width 2s, height 2s, transform 0.1s;
+.fade-in-data {
+    animation: fadeIn ease 2s;
+    -webkit-animation: fadeIn ease 2s;
+    -moz-animation: fadeIn ease 2s;
+    -o-animation: fadeIn ease 2s;
+    -ms-animation: fadeIn ease 2s;
+}
+
+.fade-in-cards {
+    animation: fadeIn ease 2s;
+    -webkit-animation: fadeIn ease 2s;
+    -moz-animation: fadeIn ease 2s;
+    -o-animation: fadeIn ease 2s;
+    -ms-animation: fadeIn ease 2s;
+}
+
+.fade-in {
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
+    -moz-animation: fadeIn ease 1s;
+    -o-animation: fadeIn ease 1s;
+    -ms-animation: fadeIn ease 1s;
+}
+@keyframes fadeIn {
+    0%  {opacity:0;}
+    10% {opacity: 0.1;}
+    20% {opacity: 0.2;}
+    30% {opacity: 0.3;}
+    40% {opacity: 0.4;}
+    50% {opacity: 0.5;}
+    60% {opacity: 0.6;}
+    70% {opacity: 0.7;}
+    80% {opacity: 0.8;}
+    80% {opacity: 0.9;}
+    100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+    0%  {opacity:0;}
+    10% {opacity: 0.1;}
+    20% {opacity: 0.2;}
+    30% {opacity: 0.3;}
+    40% {opacity: 0.4;}
+    50% {opacity: 0.5;}
+    60% {opacity: 0.6;}
+    70% {opacity: 0.7;}
+    80% {opacity: 0.8;}
+    80% {opacity: 0.9;}
+    100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+    0%  {opacity:0;}
+    10% {opacity: 0.1;}
+    20% {opacity: 0.2;}
+    30% {opacity: 0.3;}
+    40% {opacity: 0.4;}
+    50% {opacity: 0.5;}
+    60% {opacity: 0.6;}
+    70% {opacity: 0.7;}
+    80% {opacity: 0.8;}
+    80% {opacity: 0.9;}
+    100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+    0%  {opacity:0;}
+    10% {opacity: 0.1;}
+    20% {opacity: 0.2;}
+    30% {opacity: 0.3;}
+    40% {opacity: 0.4;}
+    50% {opacity: 0.5;}
+    60% {opacity: 0.6;}
+    70% {opacity: 0.7;}
+    80% {opacity: 0.8;}
+    80% {opacity: 0.9;}
+    100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+    0%  {opacity:0;}
+    10% {opacity: 0.1;}
+    20% {opacity: 0.2;}
+    30% {opacity: 0.3;}
+    40% {opacity: 0.4;}
+    50% {opacity: 0.5;}
+    60% {opacity: 0.6;}
+    70% {opacity: 0.7;}
+    80% {opacity: 0.8;}
+    80% {opacity: 0.9;}
+    100% {opacity:1;}
 }
 
 @media screen and (min-device-width: 600px) {
     h2 {
         text-align: center;
-        font-size: 0.35rem;
+        font-size: 1.5rem;
         color: white;
+    }
+    .data {
+        text-align: center;
+        font-size: 3.5rem;
+        color: lightgoldenrodyellow;
     }
     .card {
         flex: 1 1 calc(50% - 2rem);
@@ -121,8 +202,13 @@ th {
 @media screen and (min-device-width: 900px) {
     h2 {
         text-align: center;
-        font-size: 1.5rem;
+        font-size: 2rem;
         color: white;
+    }
+    .data {
+        text-align: center;
+        font-size: 7rem;
+        color: lightgoldenrodyellow;
     }
     .card {
         flex: 1 1 calc(33% - 2rem);
