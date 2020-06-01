@@ -58,7 +58,7 @@ th {
 .data {
     text-align: center;
     font-size: 5rem;
-    color: blue;
+    color: gold;
     margin: 5px;
 }
 
@@ -82,33 +82,32 @@ th {
 .card {
     margin: 0.5rem;
     background: #fffdd1;
-    box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
     border-radius: 7px;
     overflow: hidden;
 }
 
 .fade-in-data {
-    animation: fadeIn ease 2s;
-    -webkit-animation: fadeIn ease 2s;
-    -moz-animation: fadeIn ease 2s;
-    -o-animation: fadeIn ease 2s;
-    -ms-animation: fadeIn ease 2s;
-}
-
-.fade-in-cards {
-    animation: fadeIn ease 2s;
-    -webkit-animation: fadeIn ease 2s;
-    -moz-animation: fadeIn ease 2s;
-    -o-animation: fadeIn ease 2s;
-    -ms-animation: fadeIn ease 2s;
-}
-
-.fade-in {
     animation: fadeIn ease 1s;
     -webkit-animation: fadeIn ease 1s;
     -moz-animation: fadeIn ease 1s;
     -o-animation: fadeIn ease 1s;
     -ms-animation: fadeIn ease 1s;
+}
+
+.fade-in-cards {
+    animation: fadeIn ease 4s;
+    -webkit-animation: fadeIn ease 4s;
+    -moz-animation: fadeIn ease 4s;
+    -o-animation: fadeIn ease 4s;
+    -ms-animation: fadeIn ease 4s;
+}
+
+.fade-in {
+    animation: fadeIn ease 0.75s;
+    -webkit-animation: fadeIn ease 0.75s;
+    -moz-animation: fadeIn ease 0.75s;
+    -o-animation: fadeIn ease 0.75s;
+    -ms-animation: fadeIn ease 0.75s;
 }
 @keyframes fadeIn {
     0%  {opacity:0;}
@@ -180,22 +179,31 @@ th {
     100% {opacity:1;}
 }
 
+@media screen and (min-device-width: 300px) {
+    h2 {
+        text-align: center;
+        font-size: 2rem;
+    }
+    .data {
+        text-align: center;
+        font-size: 6rem;
+    }
+    .card {
+        flex: 1 1 calc(70% - 1.5rem);
+    }
+}
+
 @media screen and (min-device-width: 600px) {
     h2 {
         text-align: center;
         font-size: 1.5rem;
-        color: white;
     }
     .data {
         text-align: center;
         font-size: 3.5rem;
-        color: lightgoldenrodyellow;
     }
     .card {
         flex: 1 1 calc(50% - 2rem);
-    }
-    .card:hover {
-        box-shadow: 2px 8px 45px 2.5px darkslategrey;
     }
 }
 
@@ -203,18 +211,13 @@ th {
     h2 {
         text-align: center;
         font-size: 2rem;
-        color: white;
     }
     .data {
         text-align: center;
         font-size: 7rem;
-        color: lightgoldenrodyellow;
     }
     .card {
         flex: 1 1 calc(33% - 2rem);
-    }
-    .card:hover {
-        box-shadow: 2px 8px 45px 4px darkslategrey;
     }
 }
 

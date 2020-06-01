@@ -52,9 +52,10 @@ function displayStats(stats, card=None){
                 valid_land = true
                 current_province_key = key
                 processData(key,stats,canadian_stats[area], card)
-                calculateData(card)
             }
         }
+        // Calculate provincial/national data
+        calculateData(card,canadian_stats[area])
 
         // Only create COVID19 stats if currently selected province/territory is found
         if (valid_land == true) {
@@ -95,8 +96,7 @@ function displayStats(stats, card=None){
                 selected_display_stats = {
                     "Confirmed Cases": canadian_stats[area].confirmed,
                     "Confirmed Deaths": canadian_stats[area].deaths,
-                    "Confirmed Active": canadian_stats[area].active,
-                    "Total Recovered": canadian_stats[area].recovered
+                    "Confirmed Active": canadian_stats[area].active
                 }
 
                 //Set provinces/territories per card
@@ -148,6 +148,7 @@ function createTable(table, data) {
     let table_head = table.createTHead()
     let head_row = table_head.insertRow()
     for (key in data) {
+        console.log(data[key], key, data)
         let cell = table_row.insertCell()
         let th = document.createElement("th")
         let data_value = document.createTextNode(data[key])
@@ -189,10 +190,6 @@ function createApp() {
     app.appendChild(container)
     getNationalStats()
     getProvinceStats()
-}
-
-function testLinks(link) {
-    console.log(link)
 }
 
 // Initialize variables
