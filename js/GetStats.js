@@ -69,15 +69,12 @@ function displayStats(stats, card=None){
             //Post COVID19 stats onto 'cards' if true
             if (card == false) {
                 //Set national stat displays
-                document.getElementById("national_update").innerHTML = '';
-                document.getElementById("national_stats").innerHTML = '';
                 document.getElementById("national_timestamp_update").innerHTML =
                     national_timespan_notification
                     + ' as of '
-                    + new_date
-                    + ':';
+                    + new_date + '*';
                 document.getElementById("national_cases").innerHTML
-                    = canadian_stats_national.confirmed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    = canadian_stats_national.confirmed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+'*';
             }
 
             //Post COVID19 stats onto 'cards' if true
@@ -87,9 +84,7 @@ function displayStats(stats, card=None){
                 document.getElementById("provincial/territory_timestamp_update").innerHTML =
                     province_timespan_notification
                     + " as of "
-                    + new_date
-                    + ':';
-
+                    + new_date + '**';
                 const card = document.createElement('div')
                 card.setAttribute('class', 'card')
 
@@ -152,7 +147,7 @@ function createTable(table, data) {
     for (key in data) {
         let cell = table_row.insertCell()
         let th = document.createElement("th")
-        let data_value = document.createTextNode(data[key])
+        let data_value = document.createTextNode(data[key]+'**')
         let data_header = document.createTextNode(key)
         cell.appendChild(data_value)
         th.appendChild(data_header)
@@ -197,21 +192,15 @@ function createApp() {
 const container = document.createElement('a')
 
 let valid_land = false
-let total_recovered = 0
-
-let current_confirmed = 0
-let current_recovered = 0
 let current_timestamp = ''
-
 let accumulated_active = []
 let accumulated_confirmed = []
 let accumulated_deaths = []
 let accumulated_recovered = []
 let accumulated_cases = []
 let selected_display_stats = []
-
-let national_timespan_notification = 'National Cases '
-let province_timespan_notification = 'Confirmed Provincial/Territorial Cases '
+let national_timespan_notification = 'Confirmed National Cases '
+let province_timespan_notification = 'Confirmed for both Provincial and Territorial Cases '
 
 //Start
 createApp()

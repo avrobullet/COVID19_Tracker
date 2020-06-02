@@ -13,27 +13,23 @@
     <script src="js/CanadianStats.js"></script>
 </head>
 <body>
-    <div id="root"  class="fade-in">
+    <div class="fade-in">
         <!-- Intro Page -->
-        <div class="national-header">
-            Canadian COVID19 Dashboard
-            <h3>
-                <p>(Current build: 1.0)<br>
-            </h3>
+        <div>
+            <div class="main-header">
+                Canadian COVID19 Dashboard
+            </div>
+            <h3><p>(Current build: 1.0)<br></h3>
             <!-- National Stats -->
-            <h2><p id="national_update"></h2>
-            <h2><p id="national_stats"></h2>
-            <h2><p id="national_timestamp_update"><br>
-                <p class="fade-in-data data" id="national_cases"></p>
-            </h2>
+            <h2><p class="fade-in-data data" id="national_cases"><br></h2>
+            <p class="sub-header" id="national_timestamp_update"><br>
         </div>
         <!-- Province/Territory Stats -->
-        <div class="provincial-header">
-            <p id="provincial/territory_timestamp_update">
-            <p id="provincial/territory_timestamp" style="color:blue">
+        <div id="root">
+            <div class="container fade-in-cards" href="https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_link_create">
+            </div>
         </div>
-        <a class="container fade-in-cards" href="https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_link_create">
-        </a>
+        <p class="sub-header" id="provincial/territory_timestamp_update">
     </div>
     <script src="/COVID19_Tracker/js/GetStats.js"></script>
 </body>
