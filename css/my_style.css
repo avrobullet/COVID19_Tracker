@@ -45,6 +45,12 @@ th {
     font-size: 1rem;
 }
 
+a:link {
+    color: red;
+    background-color: transparent;
+    text-decoration: none;
+}
+
 .data {
     text-align: center;
     font-size: 8rem;
@@ -74,7 +80,7 @@ th {
 }
 .card {
     margin: 0.5rem;
-    background: #fffdd1;
+    background: white;
     border-radius: 7px;
     overflow: hidden;
 }
