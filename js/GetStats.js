@@ -73,8 +73,9 @@ function displayStats(stats, card=None){
                 document.getElementById("national_stats").innerHTML = '';
                 document.getElementById("national_timestamp_update").innerHTML =
                     national_timespan_notification
-                    + " as of "
-                    + new_date;
+                    + ' as of '
+                    + new_date
+                    + ':';
                 document.getElementById("national_cases").innerHTML
                     = canadian_stats_national.confirmed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             }
@@ -86,7 +87,8 @@ function displayStats(stats, card=None){
                 document.getElementById("provincial/territory_timestamp_update").innerHTML =
                     province_timespan_notification
                     + " as of "
-                    + new_date;
+                    + new_date
+                    + ':';
 
                 const card = document.createElement('div')
                 card.setAttribute('class', 'card')
@@ -148,7 +150,6 @@ function createTable(table, data) {
     let table_head = table.createTHead()
     let head_row = table_head.insertRow()
     for (key in data) {
-        console.log(data[key], key, data)
         let cell = table_row.insertCell()
         let th = document.createElement("th")
         let data_value = document.createTextNode(data[key])
@@ -209,8 +210,8 @@ let accumulated_recovered = []
 let accumulated_cases = []
 let selected_display_stats = []
 
-let national_timespan_notification = 'Total Confirmed Cases'
-let province_timespan_notification = 'Provincial and Territory Confirmed Cases '
+let national_timespan_notification = 'Total Cases Confirmed'
+let province_timespan_notification = 'Cases per Confirmed Province/Territory '
 
 //Start
 createApp()

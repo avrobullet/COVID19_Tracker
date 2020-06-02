@@ -8,15 +8,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Canadian Covid19 Dashboard</title>
-    <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Asap:400,700" rel="stylesheet" />
     <link href="/COVID19_Tracker/css/my_style.css" rel="stylesheet"/>
     <script src="js/CanadianStats.js"></script>
 </head>
 <body>
     <div id="root"  class="fade-in">
         <!-- Intro Page -->
-        <div class="header">
-            Canada COVID19 Dashboard
+        <div class="national-header">
+            Canadian COVID19 Dashboard
             <h3>
                 <p>(Current build: 1.0)<br>
             </h3>
@@ -28,9 +28,10 @@
             </h2>
         </div>
         <!-- Province/Territory Stats -->
-        <h2><p id="provincial/territory_timestamp_update">
+        <div class="provincial-header">
+            <p id="provincial/territory_timestamp_update">
             <p id="provincial/territory_timestamp" style="color:blue">
-        </h2>
+        </div>
         <a class="container fade-in-cards" href="https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_link_create">
         </a>
     </div>
@@ -42,6 +43,5 @@
     <p>Data accessed through the
         <a href="https://covid19api.com/" target="_blank">COVID19 API Project</a>.<br>
     <p>Created and maintained by: Alex Douglas<br>
-        <a href="mailto:hege@example.com">hege@example.com</a></p>
 </footer>
 </html>
