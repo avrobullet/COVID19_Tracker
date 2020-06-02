@@ -210,8 +210,8 @@ let accumulated_recovered = []
 let accumulated_cases = []
 let selected_display_stats = []
 
-let national_timespan_notification = 'Total Cases Confirmed'
-let province_timespan_notification = 'Cases per Confirmed Province/Territory '
+let national_timespan_notification = 'National Cases '
+let province_timespan_notification = 'Confirmed Provincial/Territorial Cases '
 
 //Start
 createApp()
