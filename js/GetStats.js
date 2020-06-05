@@ -5,10 +5,10 @@ covid19_urls = [
 ]
 // HTML styles
 stat_style = {
-    active:     ['blue','25px'],
-    confirmed:  ['orange','25px'],
-    deaths:     ['red','25px'],
-    recovered:  ['green','25px']
+    active:     ['blue','1.5rem'],
+    confirmed:  ['orange','1.5rem'],
+    deaths:     ['red','1.5rem'],
+    recovered:  ['green','1.5rem']
 }
 // Create functions
 function getNationalStats() {
@@ -17,10 +17,10 @@ function getNationalStats() {
     var request = new XMLHttpRequest()
     request.open('GET', covid19_urls[0], true)
     request.onload = function() {
-
         //Get COVID19 stats per
         var stats = JSON.parse(this.response)
         if (request.status >= 200 && request.status < 400) {
+            console.log(stats)
             displayStats(stats, false)
         } else {
             console.log('error')
@@ -36,6 +36,7 @@ function getProvinceStats() {
         //Get COVID19 stats per
         var stats = JSON.parse(this.response)
         if (request.status >= 200 && request.status < 400) {
+            console.log(stats)
             displayStats(stats, true)
         } else {
             console.log('error')
@@ -91,20 +92,24 @@ function displayStats(stats, card=None){
                 //Store COVID19 stats to display as a table (Convert to dictionary where each label includes a type of colour)
                 const table = document.createElement("table")
                 selected_display_stats = {
-                    "Confirmed Cases": canadian_stats[area].confirmed,
-                    "Confirmed Deaths": canadian_stats[area].deaths,
-                    "Confirmed Active": canadian_stats[area].active
+                    "Cases": canadian_stats[area].confirmed,
+                    "Deaths": canadian_stats[area].deaths,
+                    "Active": canadian_stats[area].active
                 }
 
                 //Set provinces/territories per card
                 createTable(table,selected_display_stats)
                 const h1 = document.createElement('h1')
                 h1.textContent = canadian_stats[area].province
+                const a = document.createElement('a')
+                a.href = canadian_stats[area].link
+                console.log(a.href)
 
                 //Display content on each card
-                container.appendChild(card)
                 card.appendChild(h1)
                 card.appendChild(table)
+                card.appendChild(a)
+                container.appendChild(card)
             }
         }
         //Reset flag for found province/territory
@@ -161,15 +166,15 @@ function createTable(table, data) {
     }
 }
 function styleStats(key, set_style) {
-    if (key == 'Confirmed Cases' || key == 'Total Cases') {
+    if (key == 'Cases' || key == 'Total Cases') {
         set_style.style.color = stat_style.confirmed[0]
         set_style.style.fontSize = stat_style.confirmed[1]
     }
-    if (key == 'Confirmed Deaths' || key == 'Total Deaths') {
+    if (key == 'Deaths' || key == 'Total Deaths') {
         set_style.style.color = stat_style.deaths[0]
         set_style.style.fontSize = stat_style.deaths[1]
     }
-    if (key == 'Confirmed Active' || key == 'Total Active') {
+    if (key == 'Active' || key == 'Total Active') {
         set_style.style.color = stat_style.active[0]
         set_style.style.fontSize = stat_style.active[1]
     }

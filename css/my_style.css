@@ -21,11 +21,11 @@ h1 {
     background-image: linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 100%);
     margin: 0 0 2px 0;
     color: whitesmoke;
-    font-size: 35px;
+    font-size: 1.75rem;
 }
 h3 {
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: white;
 }
 img {
@@ -33,30 +33,69 @@ img {
     margin: 1rem auto;
     max-width: 100%;
 }
+p {
+    padding-right: 5px;
+    padding-left: 5px;
+    font-size: 1rem;
+}
 table {
     padding: 1rem 1rem;
-    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
     overflow: auto;
     height: 10px;
 }
 th {
     word-spacing: 3px;
     padding: 5px;
-    font-size: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
 }
-
-a:link {
-    color: red;
-    background-color: transparent;
-    text-decoration: none;
+.card {
+    margin: 0.5rem;
+    background: white;
+    border-radius: 7px;
+    overflow: hidden;
 }
-
+.center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -20%);
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    justify-content: space-between;
+}
 .data {
     text-align: center;
     font-size: 8rem;
     color: gold;
     margin: 5px;
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    font-family: 'Asap', sans-serif;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    z-index: 1;
+    text-align: left;
+    transition: all 1s ease-in;
+}
+.dropdown:hover .dropdown-content {display: block;}
+
 .main-header {
     padding: 0.5rem 2rem 1rem 2rem;
     text-align: center;
@@ -69,20 +108,6 @@ a:link {
     color: white;
     font-size: 2rem;
     font-weight: bold;
-}
-.container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    justify-content: space-between;
-}
-.card {
-    margin: 0.5rem;
-    background: white;
-    border-radius: 7px;
-    overflow: hidden;
 }
 .fade-in-data {
     animation: fadeIn ease 1s;
@@ -189,6 +214,11 @@ a:link {
 }
 
 @media screen and (min-device-width: 300px) {
+    th {
+        word-spacing: 2px;
+        padding: 3px;
+        text-align: center;
+    }
     .main-header {
         padding: 0.5rem 2rem 1rem 2rem;
         text-align: center;
@@ -207,10 +237,16 @@ a:link {
         font-size: 5rem;
     }
     .card {
-        flex: 1 1 calc(70% - 1.5rem);
+        flex: 1 1 calc(70% - 1rem);
     }
 }
 @media screen and (min-device-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+    th {
+        font-size: 1.5rem;
+    }
     .main-header {
         padding: 0.5rem 2rem 1rem 2rem;
         text-align: center;
@@ -233,6 +269,9 @@ a:link {
     }
 }
 @media screen and (min-device-width: 900px) {
+    th {
+        font-size: 1.25rem;
+    }
     .main-header {
         padding: 0.5rem 2rem 1rem 2rem;
         text-align: center;
@@ -252,6 +291,37 @@ a:link {
     }
     .card {
         flex: 1 1 calc(33% - 2rem);
+    }
+}
+@media screen and (min-device-width: 1440px) {
+    h1 {
+        font-size: 3rem;
+    }
+    p {
+        font-size: 2rem;
+    }
+    th {
+        font-size: 2rem;
+    }
+    .main-header {
+        padding: 0.5rem 2rem 1rem 2rem;
+        text-align: center;
+        color: white;
+        font-size: 5rem;
+        font-weight: bold;
+    }
+    .sub-header {
+        text-align: center;
+        color: white;
+        font-size: 3rem;
+        font-weight: bold;
+    }
+    .data {
+        text-align: center;
+        font-size: 9rem;
+    }
+    .card {
+        flex: 1 1 calc(50% - 9rem);
     }
 }
 
