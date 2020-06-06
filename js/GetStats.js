@@ -46,7 +46,7 @@ function displayStats(stats, card=None){
         document.getElementById("national_cases").style.color = 'gold';
         document.getElementById("national_deaths").style.color = 'red';
         document.getElementById("national_recovered").style.color = 'green';
-        document.getElementById("national_cases").innerHTM = canadian_stats_national.cases.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById("national_cases").innerHTML = canadian_stats_national.cases.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         document.getElementById("national_deaths").innerHTML = canadian_stats_national.deaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         document.getElementById("national_recovered").innerHTML = canadian_stats_national.recovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         document.getElementById("national_timestamp_update").innerHTML =
