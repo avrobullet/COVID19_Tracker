@@ -97,18 +97,18 @@ function displayStats(stats, card=None){
                     "Active": canadian_stats[area].active
                 }
 
-                //Set provinces/territories per card
+                //Set information provinces/territories per card
                 createTable(table,selected_display_stats)
                 const h1 = document.createElement('h1')
                 h1.textContent = canadian_stats[area].province
                 const a = document.createElement('a')
                 a.href = canadian_stats[area].link
-                console.log(a.href)
+                a.target = '_blank'
 
                 //Display content on each card
-                card.appendChild(h1)
-                card.appendChild(table)
+                a.appendChild(h1)
                 card.appendChild(a)
+                card.appendChild(table)
                 container.appendChild(card)
             }
         }
@@ -154,35 +154,26 @@ function createTable(table, data) {
         let th = document.createElement("th")
         let data_value = document.createTextNode(data[key]+'**')
         let data_header = document.createTextNode(key)
-        cell.appendChild(data_value)
         th.appendChild(data_header)
+        cell.appendChild(data_value)
         head_row.appendChild(th)
 
+        styleStats(key,cell)
+
         //Format stats to HTML page
-        cell = styleStats(key,cell)
-        cell.style.fontWeight = 'bold';
-        cell.style.textAlign = 'center';
-        cell.style.padding = '5px';
+        cell = document.createElement('td')
     }
 }
 function styleStats(key, set_style) {
     if (key == 'Cases' || key == 'Total Cases') {
         set_style.style.color = stat_style.confirmed[0]
-        set_style.style.fontSize = stat_style.confirmed[1]
     }
     if (key == 'Deaths' || key == 'Total Deaths') {
         set_style.style.color = stat_style.deaths[0]
-        set_style.style.fontSize = stat_style.deaths[1]
     }
     if (key == 'Active' || key == 'Total Active') {
         set_style.style.color = stat_style.active[0]
-        set_style.style.fontSize = stat_style.active[1]
     }
-    if (key == 'Total Recovered') {
-        set_style.style.color = stat_style.recovered[0]
-        set_style.style.fontSize = stat_style.recovered[1]
-    }
-    return set_style
 }
 function createApp() {
     // Initialize HTML elements
