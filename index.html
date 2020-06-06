@@ -34,14 +34,28 @@
                 </div>
             </div>
             <!-- National Stats -->
-            <h2><p class="fade-in-data data" id="national_cases"><br></h2>
+            <table>
+                <tr>
+                    <td>
+                        <h2><p class="fade-in-data data" id="national_cases"></h2>
+                        <h3><p class="fade-in-data sub-header" style="text-align: right">cases</p></h3>
+                    </td>
+                    <td>
+                        <h2><p class="fade-in-data data" id="national_recovered"></h2>
+                        <h3><p class="fade-in-data sub-header" style="text-align: right">recovered</p></h3>
+                    </td>
+                    <td>
+                        <h2><p class="fade-in-data data" id="national_deaths"></h2>
+                        <h3><p class="fade-in-data sub-header" style="text-align: right">deaths</p></h3>
+                    </td>
+                </tr>
+            </table>
             <p class="sub-header" id="national_timestamp_update"><br>
         </div>
         <!-- Province/Territory Stats -->
         <div id="root">
             <div class="container fade-in-cards"></div>
         </div>
-        <p class="sub-header" id="provincial/territory_timestamp_update">
     </div>
     <script src="/COVID19_Tracker/js/GetStats.js"></script>
 </body>

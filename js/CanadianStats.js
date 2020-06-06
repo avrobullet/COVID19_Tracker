@@ -1,6 +1,7 @@
 
 //Months...
-months = ['January',
+months = [
+    'January',
     'February',
     'March',
     'April',
@@ -13,10 +14,21 @@ months = ['January',
     'November',
     'December'
 ]
+//Weekdays...
+weekday = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday'
+]
 // Canadian National stats
 canadian_stats_national = {
-    confirmed: 0,
+    cases: 0,
     deaths: 0,
+    active: 0,
     recovered: 0
 }
 // Canadian Provinces and Territories stats (in no particular order)
