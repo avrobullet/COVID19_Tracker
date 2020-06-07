@@ -45,8 +45,8 @@ function displayStats(stats, card=None){
         calculateData(false);
         // Set colours
         document.getElementById("national_cases").style.color = 'gold';
-        document.getElementById("national_deaths").style.color = '#FF0000';
-        document.getElementById("national_recovered").style.color = '#39ff14';
+        document.getElementById("national_deaths").style.color = '#EF224B';
+        document.getElementById("national_recovered").style.color = '#00FA9A';
         let case_sup = document.createElement('SUP');
         let death_sup = document.createElement('SUP');
         let recovered_sup = document.createElement('SUP');
