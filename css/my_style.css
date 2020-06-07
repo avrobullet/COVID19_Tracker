@@ -1,3 +1,13 @@
+/*
+ Theme Name:   Landing Page Theme
+ Author:       Alex Douglas
+ Author URI:   https://coviddashboard.ca
+
+/blog
+ Template:     twentytwenty
+ Version:      1.0
+ Text Domain:  twentytwenty-child
+*/
 * {
     box-sizing: border-box
 }
@@ -11,12 +21,12 @@ footer {
     text-align: center;
     padding: 3px;
 }
-body {
+html, body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: 'Asap', sans-serif;
     background: linear-gradient(120deg,#0683D7, #8D3FD0);
-    background-size: 400% 400%;
+    background-size: 700% 700%;
 }
 h1 {
     text-align: center;
@@ -106,7 +116,7 @@ sup {
 }
 
 .main-header {
-    padding: 0.75rem 2rem 2rem 2rem;
+    padding: 3rem 2rem 2rem 2rem;
     text-align: center;
     color: white;
     font-size: 3rem;
@@ -250,13 +260,6 @@ sup {
     .card {
         flex: 1 1 calc(100% - 1rem);
     }
-    .fade-in-data {
-        animation: fadeIn ease 1.75s;
-        -webkit-animation: fadeIn ease 1.75s;
-        -moz-animation: fadeIn ease 1.75s;
-        -o-animation: fadeIn ease 1.75s;
-        -ms-animation: fadeIn ease 1.75s;
-    }
 }
 @media screen and (min-device-width: 400px) {
     h2 {
@@ -315,8 +318,8 @@ sup {
     }
     sup {
         font-size: 2rem;
-        margin-left: -2.5rem;
-        margin-right: -6rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
     p, th,td {
         font-size: 2rem;
