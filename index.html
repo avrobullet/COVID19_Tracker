@@ -24,32 +24,22 @@
                     <div class="card"
                          style="background-color: coral;"
                          style="font-size: 1.25rem;">
-                        <h3 style="padding: 0.05rem 1rem 0.05rem 1rem;">Current build: 1.1</h3>
+                        <h2>Current build: 1.1</h2>
                         <div class="dropdown-content">
                             <p>Tweaked Alignment Issues</p>
                             <p>Expanded API Searches</p>
-                            <p>Added Links to Official COVID19 Governement Sites</p>
+                            <p>Altered Colour Combinations</p>
+                            <p>Clickable Official Government Links per Card!</p>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- National Stats -->
-            <table>
-                <tr>
-                    <td>
-                        <h2><p class="fade-in-data data" id="national_cases"></h2>
-                        <h3><p class="fade-in-data sub-header" style="text-align: right">cases</p></h3>
-                    </td>
-                    <td>
-                        <h2><p class="fade-in-data data" id="national_recovered"></h2>
-                        <h3><p class="fade-in-data sub-header" style="text-align: right">recovered</p></h3>
-                    </td>
-                    <td>
-                        <h2><p class="fade-in-data data" id="national_deaths"></h2>
-                        <h3><p class="fade-in-data sub-header" style="text-align: right">deaths</p></h3>
-                    </td>
-                </tr>
-            </table>
+            <div class="container fade-in-data">
+                <div class="data" id="national_cases"></div>
+                <div class="data" id="national_recovered"></div>
+                <div class="data" id="national_deaths"></div>
+            </div>
             <p class="sub-header" id="national_timestamp_update"><br>
         </div>
         <!-- Province/Territory Stats -->

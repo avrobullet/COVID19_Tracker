@@ -15,9 +15,6 @@ body {
     font-family: 'Asap', sans-serif;
     background: linear-gradient(120deg,#0683D7, #8D3FD0);
     background-size: 400% 400%;
-    -webkit-animation: flowing 20s ease infinite;
-    -moz-animation: flowing 20s ease infinite;
-    animation: flowing 20s ease infinite;
 }
 h1 {
     text-align: center;
@@ -27,10 +24,10 @@ h1 {
     color: whitesmoke;
     font-size: 1.75rem;
 }
-h3 {
-    text-align: center;
-    font-size: 1rem;
-    color: white;
+h2 {
+    color: black;
+    padding-right: 3rem;
+    padding-left: 3rem;
 }
 p {
     padding-right: 5px;
@@ -38,7 +35,7 @@ p {
     font-size: 1rem;
 }
 table {
-    padding: 1rem 1rem;
+    padding: 3px 3px;
     margin-left: auto;
     margin-right: auto;
     overflow: auto;
@@ -48,9 +45,16 @@ th, td {
     font-weight: bold;
     text-align: center;
 }
+sup {
+    font-size: 1rem;
+    position: relative;
+    font-weight: bold;
+    letter-spacing: -1px;
+    margin: -1.5rem;
+}
 .card {
     margin: 0.5rem;
-    background: white;
+    background-color:white;
     border-radius: 7px;
     overflow: hidden;
 }
@@ -71,11 +75,11 @@ th, td {
     flex-wrap: wrap;
     display: -webkit-flex;
     display: -ms-flexbox;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .data {
     text-align: center;
-    margin: 5px;
+    font-weight: bold;
 }
 .dropdown {
     position: relative;
@@ -95,7 +99,7 @@ th, td {
 .dropdown:hover .dropdown-content {display: block;}
 
 .main-header {
-    padding: 0.5rem 2rem 1.5rem 2rem;
+    padding: 0.75rem 2rem 2rem 2rem;
     text-align: center;
     color: white;
     font-size: 3rem;
@@ -107,12 +111,15 @@ th, td {
     font-size: 2rem;
     font-weight: bold;
 }
+.sub-script {
+
+}
 .fade-in-data {
-    animation: fadeIn ease 1s;
-    -webkit-animation: fadeIn ease 1s;
-    -moz-animation: fadeIn ease 1s;
-    -o-animation: fadeIn ease 1s;
-    -ms-animation: fadeIn ease 1s;
+    animation: fadeIn ease 1.5s;
+    -webkit-animation: fadeIn ease 1.5s;
+    -moz-animation: fadeIn ease 1.5s;
+    -o-animation: fadeIn ease 1.5s;
+    -ms-animation: fadeIn ease 1.5s;
 }
 .fade-in-cards {
     animation: fadeIn ease 4s;
@@ -144,7 +151,6 @@ th, td {
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
 }
-
 @keyframes fadeIn {
     0%  {opacity:0;}
     10% {opacity: 0.1;}
@@ -212,24 +218,48 @@ th, td {
 }
 
 @media screen and (min-device-width: 300px) {
+    h2 {
+        font-size: 1rem;
+    }
     p,th,td {
         padding: 7px;
         text-align: center;
         font-size: 1.35rem;
     }
+    sup {
+        font-size: 1.5rem;
+        margin-left: 5px;
+    }
+    .main-header {
+        font-size: 3rem;
+        padding-bottom: 1.45rem;
+    }
     .sub-header {
-        font-size: 1.45rem;
+        padding-top: -1.05rem;
+        font-size: 1.35rem;
     }
     .data {
-        font-size: 5rem;
+        font-size: 4rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
     }
     .card {
-        flex: 1 1 calc(70% - 1rem);
+        flex: 1 1 calc(100% - 1rem);
+    }
+    .fade-in-data {
+        animation: fadeIn ease 1.75s;
+        -webkit-animation: fadeIn ease 1.75s;
+        -moz-animation: fadeIn ease 1.75s;
+        -o-animation: fadeIn ease 1.75s;
+        -ms-animation: fadeIn ease 1.75s;
     }
 }
 @media screen and (min-device-width: 400px) {
-    h1 {
-        font-size: 2rem;
+    h2 {
+        font-size: 1rem;
+    }
+    sup {
+        font-size: 1.5rem;
     }
     p, th,td {
         font-size: 1.5rem;
@@ -237,27 +267,39 @@ th, td {
         padding-left: 20px;
     }
     .main-header {
-        font-size: 3.75rem;
+        font-size: 3.25rem;
+    }
+    .sub-header {
+        padding-top: -2rem;
+        font-size: 1.75rem;
     }
     .data {
-        text-align: center;
-        font-size: 7.5rem;
+        text-align: left;
+        font-size: 4.75rem;
     }
     .card {
         flex: 1 1 calc(60% - 1.5rem);
     }
 }
 @media screen and (min-device-width: 700px) {
+    h2 {
+        font-size: 1.25rem;
+    }
     p, th,td {
         font-size: 1.85rem;
         padding-right: 5px;
         padding-left: 5px;
     }
+    sup {
+        font-size: 3rem;
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
     .main-header {
         font-size: 3.85rem;
     }
     .data {
-        font-size: 7rem;
+        font-size: 7.5rem;
     }
     .card {
         flex: 1 1 calc(50% - 1rem);
@@ -265,18 +307,24 @@ th, td {
 }
 @media screen and (min-device-width: 1000px) {
     h1 {
-        font-size: 2.75rem;
+        font-size: 2rem;
+    }
+    sup {
+        font-size: 2rem;
+        margin-left: -2.5rem;
+        margin-right: -6rem;
     }
     p, th,td {
         font-size: 2rem;
         padding-right: 0.85rem;
         padding-left: 0.85rem;
+
     }
     .main-header {
-        font-size: 3.85rem;
+        font-size: 4rem;
     }
     .data {
-        font-size: 6rem;
+        font-size: 6.15rem;
     }
     .card {
         flex: 1 1 calc(30% - 1.5rem);
@@ -285,6 +333,11 @@ th, td {
 @media screen and (min-device-width: 1440px) {
     h1 {
         font-size: 4rem;
+    }
+    h3 {
+        font-size: 5rem;
+        padding-right: 3rem;
+        padding-left: 3rem;
     }
     p,th,td {
         font-size: 2.85rem;
@@ -300,6 +353,8 @@ th, td {
     }
     .data {
         font-size: 12rem;
+        padding-right: 3rem;
+        padding-left: 3rem;
     }
     .card {
         flex: 1 1 calc(50% - 9rem);
@@ -308,6 +363,11 @@ th, td {
 @media screen and (min-device-width: 2560px) {
     h1 {
         font-size: 6rem;
+    }
+    h3 {
+        font-size: 7rem;
+        padding-right: 3rem;
+        padding-left: 3rem;
     }
     p,th,td {
         font-size: 4.5rem;
@@ -322,7 +382,9 @@ th, td {
         font-size: 3rem;
     }
     .data {
-        font-size: 19rem;
+        font-size: 18rem;
+        padding-right: 3rem;
+        padding-left: 3rem;
     }
     .card {
         flex: 1 1 calc(50% - 9rem);

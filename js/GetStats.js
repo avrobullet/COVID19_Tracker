@@ -43,14 +43,29 @@ function displayStats(stats, card=None){
         //Get and display national stats
         processData(null,stats,null,false);
         calculateData(false);
+        // Set colours
         document.getElementById("national_cases").style.color = 'gold';
-        document.getElementById("national_deaths").style.color = 'red';
-        document.getElementById("national_recovered").style.color = 'green';
+        document.getElementById("national_deaths").style.color = '#FF0000';
+        document.getElementById("national_recovered").style.color = '#39ff14';
+        let case_sup = document.createElement('SUP');
+        let death_sup = document.createElement('SUP');
+        let recovered_sup = document.createElement('SUP');
+
+        // Display National Cases
+        case_sup.appendChild(document.createTextNode('Cases'));
         document.getElementById("national_cases").innerHTML = canadian_stats_national.cases.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById("national_cases").appendChild(case_sup);
+        // Display National Deaths
+        death_sup.appendChild(document.createTextNode('Deaths'));
         document.getElementById("national_deaths").innerHTML = canadian_stats_national.deaths.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById("national_deaths").appendChild(death_sup);
+        // Display National Recovered
+        recovered_sup.appendChild(document.createTextNode('Recovered'));
         document.getElementById("national_recovered").innerHTML = canadian_stats_national.recovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById("national_recovered").appendChild(recovered_sup);
+
         document.getElementById("national_timestamp_update").innerHTML =
-            "Stats Refreshed As Of " + getDate();
+            "Stats Refreshed as of " + getDate();
     }
     else {
         //Collect COVID19 confirmed, deaths, and recoveries (COVID19 stats)
@@ -91,9 +106,9 @@ function displayStats(stats, card=None){
                     a.target = '_blank'
 
                     //Display content on each card
-                    a.appendChild(h1)
-                    a.appendChild(table)
-                    card.appendChild(a)
+                    a.appendChild(h1);
+                    a.appendChild(table);
+                    card.appendChild(a);
                     container.appendChild(card)
                 }
             }
