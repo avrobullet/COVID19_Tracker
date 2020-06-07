@@ -52,7 +52,7 @@ function displayStats(stats, card=None){
         let recovered_sup = document.createElement('SUP');
 
         // Display National Cases
-        case_sup.appendChild(document.createTextNode('Cases'));
+        case_sup.appendChild(document.createTextNode('Case'));
         document.getElementById("national_cases").innerHTML = canadian_stats_national.cases.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         document.getElementById("national_cases").appendChild(case_sup);
         // Display National Deaths
