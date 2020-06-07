@@ -3,21 +3,9 @@
 }
 a {
     text-decoration: none;
-    color: black;
-}a:link {
-     color: pink;
- }
-/* A link that has been visited */
+}
 a:visited {
-    color: blue;
-}
-/* A link that is hovered on */
-a:hover {
-    color: red;
-}
-/* A link that is selected */
-a:active {
-    color: green;
+    color: black;
 }
 footer {
     text-align: center;
@@ -80,7 +68,7 @@ sup {
 .center {
     position: fixed;
     top: 50%;
-    left: 50%;
+    left: 40%;
     transform: translate(-50%, -20%);
 }
 .container {
@@ -96,9 +84,15 @@ sup {
     font-weight: bold;
 }
 .dropdown {
+    margin: 0.5rem;
+    background-color: coral;
+    border-radius: 7px;
+    font-size: 1.25rem;
+    overflow: hidden;
     position: relative;
     display: inline-block;
     text-align: center;
+    animation: pulse 1.5s ease-out 0s alternate 1 none running;
 }
 .dropdown-content {
     display: none;
@@ -110,7 +104,6 @@ sup {
     text-align: left;
     transition: all 1s ease-in;
 }
-.dropdown:hover .dropdown-content {display: block;}
 
 .main-header {
     padding: 0.75rem 2rem 2rem 2rem;
@@ -150,20 +143,17 @@ sup {
     -ms-animation: fadeIn ease 0.75s;
 }
 
-@-webkit-keyframes flowing {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+@-webkit-keyframes pulse {
+    0% {transform: scale(.3); background-color: #001F3F;}
+    100% {transform: scale(1); background-color: #FF4136;}
 }
-@-moz-keyframes flowing {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+@-moz-keyframes pulse {
+    0% {transform: scale(.3);background-color: #001F3F;}
+    100% {transform: scale(1); background-color: #FF4136;}
 }
-@keyframes flowing {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+@keyframes pulse {
+    0% {transform: scale(.3); background-color: #001F3F;}
+    100% {transform: scale(1); background-color: #FF4136;}
 }
 @keyframes fadeIn {
     0%  {opacity:0;}
@@ -341,7 +331,7 @@ sup {
         font-size: 6.15rem;
     }
     .card {
-        flex: 1 1 calc(50% - 1.5rem);
+        flex: 1 1 calc(30% - 1.5rem);
     }
 }
 @media screen and (min-device-width: 1440px) {
