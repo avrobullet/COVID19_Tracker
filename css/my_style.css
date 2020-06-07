@@ -341,7 +341,7 @@ sup {
         font-size: 6.15rem;
     }
     .card {
-        flex: 1 1 calc(30% - 1.5rem);
+        flex: 1 1 calc(50% - 1.5rem);
     }
 }
 @media screen and (min-device-width: 1440px) {
