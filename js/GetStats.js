@@ -98,12 +98,12 @@ function displayStats(stats, card=None){
                     }
 
                     //Set information provinces/territories per card
-                    createTable(table,selected_display_stats)
-                    const h1 = document.createElement('h1')
-                    h1.textContent = canadian_stats[area].province
-                    const a = document.createElement('a')
-                    a.href = canadian_stats[area].link
-                    a.target = '_blank'
+                    createTable(table,selected_display_stats);
+                    const h1 = document.createElement('h1');
+                    h1.textContent = canadian_stats[area].province;
+                    const a = document.createElement('a');
+                    a.href = canadian_stats[area].link;
+                    a.target = '_blank';
 
                     //Display content on each card
                     a.appendChild(h1);
