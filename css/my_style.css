@@ -116,7 +116,7 @@ sup {
 }
 
 .main-header {
-    padding: 3rem 2rem 2rem 2rem;
+    padding: 0.5rem 2rem 2rem 2rem;
     text-align: center;
     color: white;
     font-size: 3rem;
@@ -316,27 +316,27 @@ sup {
     h1 {
         font-size: 2rem;
     }
-    sup {
-        font-size: 2rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
     p, th,td {
         font-size: 2rem;
         padding-right: 0.85rem;
         padding-left: 0.85rem;
 
     }
+    sup {
+        font-size: 1.75rem;
+        padding-left: 0.25rem;
+    }
     .main-header {
         font-size: 4rem;
     }
     .data {
-        font-size: 6.15rem;
+        font-size: 5rem;
     }
     .card {
         flex: 1 1 calc(30% - 1.5rem);
     }
 }
+
 @media screen and (min-device-width: 1440px) {
     h1 {
         font-size: 4rem;
@@ -351,6 +351,10 @@ sup {
         padding-right: 1.5rem;
         padding-left: 1.5rem;
     }
+    sup {
+        font-size: 3rem;
+        padding-left: 0.25rem;
+    }
     .main-header {
         padding: 1rem 2rem 3rem 2rem;
         font-size: 5rem;
@@ -359,7 +363,7 @@ sup {
         font-size: 3rem;
     }
     .data {
-        font-size: 12rem;
+        font-size: 7rem;
         padding-right: 3rem;
         padding-left: 3rem;
     }
