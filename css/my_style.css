@@ -13,9 +13,10 @@
 }
 a {
     text-decoration: none;
+    color: black;
 }
 a:visited {
-    color: black;
+    color: orangered;
 }
 footer {
     text-align: center;
