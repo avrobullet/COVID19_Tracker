@@ -3,10 +3,10 @@
 A web-based [Canadian COVID19 dashboard](http://coviddashboard.ca/) built completely from scratch to allow the viewer to quickly glance at meaningful statistics. This project uses HTML5, CSS3, JavaScript, PHP, and Wordpress.
 
 ## Contents
-- [Software Tools Used](##software-tools-used)
-- [Version](##version)
-- [Current Problems and Issues](##current-problems-and-issues)
-- [License](##license)
+- [Software Tools Used](#software-tools-used)
+- [Version](#version)
+- [Current Problems and Issues](#current-problems-and-issues)
+- [License](#license)
 
 ## Software Tools Used
 - [Google Cloud Platfom](https://cloud.google.com/gcp/?utm_source=google&utm_medium=cpc&utm_campaign=2015-q2-cloud-na-gcp-%20bkws-freetrial-en&&gclid=Cj0KCQjw9IX4BRCcARIsAOD2OB2QYuE2sy-51ZvztnN0TZzz7rhi5Qxksp4yKoRFMZT6_Dvlm01YXmAaAvJ4EALw_wcB) - Using Google Cloud to host the website
