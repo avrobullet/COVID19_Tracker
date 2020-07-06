@@ -11,6 +11,7 @@ A web-based [Canadian COVID19 dashboard](http://coviddashboard.ca/) built comple
 ## Software Tools Used
 - [Google Cloud Platfom](https://cloud.google.com/gcp/?utm_source=google&utm_medium=cpc&utm_campaign=2015-q2-cloud-na-gcp-%20bkws-freetrial-en&&gclid=Cj0KCQjw9IX4BRCcARIsAOD2OB2QYuE2sy-51ZvztnN0TZzz7rhi5Qxksp4yKoRFMZT6_Dvlm01YXmAaAvJ4EALw_wcB) - Using Google Cloud to host the website
 - [Wordpress](https://wordpress.com/) - The website publishing service
+- [Ubuntu Desktop OS](https://ubuntu.com/desktop) - A Linux distro used as the server OS that is running the website
 - HTML5, CSS3, JavaScript - The programming languagues used to create the website itself
 
 ## Version
