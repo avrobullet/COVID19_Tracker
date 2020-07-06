@@ -27,4 +27,4 @@ Currently, my wesbite does not contain any graphing or other visualisation indic
 I have access to a couple of APIs to Canadian COVID19 data is required for updating live cases, however the API used for provincial statistics has stopped updating since the end of May. Currently, there are no API alternatives that show individual provincial statistics and differentiate between cases that are active, fatal, and recovered. I may have to restructure the website entirely to display national case data.
 
 ## License
-This project is licensed under the Apache 2 License - see the LICENSE file for details
+This project is licensed under the [GNU General Public License V.3 License](https://github.com/avrobullet/COVID19_Tracker/blob/master/LICENSE) - see the LICENSE file for details
